@@ -14,7 +14,7 @@ timer = None
 # ---- TIME RESET ----  #
 def reset_timer():
     window.after_cancel(timer)
-    heading.config(text="Work")
+    heading.config(text="Calisma")
     canvas.itemconfig(timer_text, text="00:00")
     check.config(text="")
     global reps
@@ -32,13 +32,13 @@ def start_timer():
     long_break_sec = LONG_BREAK_MIN * 60
 
     if reps % 8 == 0:
-        heading.config(text="Big Break!!")
+        heading.config(text="Uzun Mola!!")
         count_down(long_break_sec)
     elif reps % 2 == 0:
-        heading.config(text="Break!")
+        heading.config(text="Mola!")
         count_down(short_break_sec)
     else:
-        heading.config(text="Work")
+        heading.config(text="Calisma")
         count_down(work_sec)
 
 # ---- COUNTDOWN MECHANISM ---- #
@@ -63,10 +63,10 @@ def count_down(count):
 # ---- UI SETUP ----  #
 window = Tk()
 window.iconbitmap("tomato.ico")
-window.title("Pomodoro Timer")
+window.title("Pomodoro Zamanlayici")
 window.config(padx=70, pady=20, bg=YELLOW)
 
-heading = Label(text="Work", font=(FONT_NAME, 28, "bold"), background=YELLOW)
+heading = Label(text="Calisma", font=(FONT_NAME, 28, "bold"), background=YELLOW)
 heading.pack()
 
 canvas = Canvas(width=200, height=180, bg=YELLOW, highlightthickness=0)
@@ -78,10 +78,10 @@ canvas.pack()
 check = Label(font=(FONT_NAME, 15, "bold"), bg=YELLOW, fg=GREEN)
 check.pack(side="bottom")
 
-reset_button = Button(text="Reset", command=reset_timer)
+reset_button = Button(text="Sifirla", command=reset_timer)
 reset_button.pack(side="left")
 
-start_button = Button(text="Start", command=start_timer)
+start_button = Button(text="Baslat", command=start_timer)
 start_button.pack(side="right")
 
 window.mainloop()
